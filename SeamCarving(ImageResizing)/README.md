@@ -25,7 +25,6 @@ Here are some visual comparisons between the input and output images:
 | Input Image | Output Image |
 | :---: | :---: |
 | ![Input Image](artifacts/input1.jpeg) | ![Output Image](artifacts/output1.jpeg) |
-| ![Input Image](artifacts/input2.jpeg) | ![Output Image](artifacts/output2.jpeg) |
 | ![Input Image](artifacts/input3.png) | ![Output Image](artifacts/output3.png) |
 
 ## Program Flow
@@ -84,8 +83,4 @@ python ./src/driver.py sample1.jpeg
 ## Reference 
 
 The Calculation ofGradient Matrix and details of Seam Carving Algorithm was reffered from an Assignment from Princton University which can be found [here](https://www.cs.princeton.edu/courses/archive/fall17/cos226/assignments/seam/index.html)
-
-## Contributions
-
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
