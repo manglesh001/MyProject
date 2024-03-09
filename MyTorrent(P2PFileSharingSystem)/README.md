@@ -6,8 +6,6 @@ This project is a peer-to-peer file sharing network that enables users to share,
 
 The architecture of this Mini-Torr project consists of multiple clients (users) and a tracker. The tracker plays a crucial role in maintaining the network by storing metadata related to the files and users. Specifically, the tracker maintains a mapping of files to the users who possess them. This mapping helps clients discover other users who have the desired files they wish to download.
 
-![Diagram](artifacts/diagram.webp)
-
 ## Functional Requirements
 
 The network for the Mini-torrent project will consist of the following entities:
