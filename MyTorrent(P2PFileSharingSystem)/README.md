@@ -145,9 +145,7 @@ The SHA1 algorithm is employed to maintain data integrity within the Mini-torren
 - After downloading a chunk, if the SHA/hash matches, it is taken.
 - At the end it will be checked if all the Chunks are present or not. If not, we will do the above steps again one more time, if any chunk is not having a peer that means it cannot be downloaded completely.
 
-**NOTE** : Here Peer corresponds to Client which in turn corresponds to PORT.
 
-# Contribution
 
-Any Contributions are most welcome. Feel free to play around the notebook and suggest changes.
+
 
