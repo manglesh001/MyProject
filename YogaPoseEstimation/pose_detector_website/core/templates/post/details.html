@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% block title %}{{ post.title }} | {% endblock %}
+
+{% block content %}
+<section class="hero ">
+    <div class="hero-body">
+        <div class="container">
+
+            <section class="section">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+                            <h1 class="title has-text-centered">{{ post.title }}</h1>
+                            <h4 class="subtitle has-text-centered">{{ post.submitted_at }}</h4>
+                            {% if post.image %}
+                            <div class="columns">
+                                <div class="column is-half">
+                                    <figure class="image">
+                                        <img src="{{ post.image.url }}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="column is-half">
+                                    <figure class="image">
+                                        <img src="{{ post.detect_image.url }}" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <p class="has-text-centered">{{ post.information }}</p>
+                        </div>
+                        <div>
+                            {% if pose_result %}
+                                <h3>Predicted Pose: {{ pose_result }}</h3>
+                            {% endif %}
+                        </div>
+                        <form method="delete" action="{% url 'delete_pose' post.slug %}">
+                            {% csrf_token %}
+                            <button class="button is-block is-dark is-medium is-fullwidth">Delete Pose</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

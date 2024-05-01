@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About | {% endblock %}
+
+{% block content %}
+    <div style="text-align: center; margin-top: 50px;">
+        {% load static %}
+        <h1 style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">About Yoga Pose Detection</h1>
+        <img src="{% static 'yoga.png' %}" alt="Yoga Pose Detection" style="max-width: 100%; height: auto; margin-bottom: 30px;">
+        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 18px; line-height: 1.6; text-align: justify; margin-bottom: 20px;">
+                Welcome to our serene corner dedicated to Yoga Pose Detection, where the fusion of technology and ancient wisdom harmoniously coexists.
+                Our vision is to blend the art of yoga with the power of artificial intelligence, offering you an immersive experience in your wellness journey.
+            </p>
+            <p style="font-size: 18px; line-height: 1.6; text-align: justify; margin-bottom: 20px;">
+                At the heart of our endeavor is the belief that everyone, regardless of their expertise in yoga, should have access to accurate and insightful feedback.
+                Our pose detection system uses advanced algorithms to analyze your yoga postures and provides real-time feedback, guiding you towards a more mindful and aligned practice.
+            </p>
+            <p style="font-size: 18px; line-height: 1.6; text-align: justify; margin-bottom: 20px;">
+                Immerse yourself in the joy of self-discovery and refinement as our technology assists you in perfecting your yoga poses.
+                Whether you are a seasoned yogi or just beginning your journey, our Yoga Pose Detection website is here to support and inspire you every step of the way.
+            </p>
+            <p style="font-size: 18px; line-height: 1.6; text-align: justify; margin-bottom: 30px;">
+                Embrace the future of yoga practice with us, where innovation meets tradition, and each pose is an opportunity for growth and well-being.
+                Start your transformative journey today!
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+

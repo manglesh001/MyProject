@@ -1,0 +1,23 @@
+<!-- upload_webcam.html -->
+
+{% extends 'core/base.html' %}
+
+{% block title %}Take a Picture | {% endblock %}
+
+{% block content %}
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-black">Real Time Pose Detection Using Webcam</h3>
+                <div class="box">
+                    <form method="post" action="{% url 'upload_webcam' %}">
+                        {% csrf_token %}
+                        <button class="button is-block is-dark is-large is-fullwidth">Detect Pose </button>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

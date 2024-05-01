@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Upload | {% endblock %}
+
+<!-- Add the following code where you want to display the predicted pose result -->
+
+
+{% block content %}
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-black">Upload a Yoga Pose</h3>
+                <div class="box">
+                    <form method="post" action="{% url 'upload_form' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!-- <div class="file">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="upload_image">
+                                <span class="file-cta">
+                                    <span class="file-label">
+                                        Upload an image....
+                                    </span>
+                                </span>
+                            </label>
+                        </div> -->
+                        <div><!-- Add the following code where you want to display the predicted pose result -->
+                            {% if pose_result %}
+                                <h3>Predicted Pose: {{ pose_result }}</h3>
+                            {% endif %}
+                            </div>
+                        <div class="field">
+                            {{ form.as_p }}
+                        </div>
+                        <button class="button is-block is-dark is-large is-fullwidth">Upload <i class="fa"
+                                aria-hidden="true"></i></button>
+                    </form>
+                   
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

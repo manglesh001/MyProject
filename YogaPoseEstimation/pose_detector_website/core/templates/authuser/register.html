@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Register | {% endblock %}
+
+{% block content %}
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-black">Register</h3>
+                <p class="subtitle has-text-black">Please register to proceed.</p>
+                <p class="subtitle">{{ form.errors }}</p>
+                <div class="box">
+                    <form method="post" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-large" type="email" placeholder="Your Email" name="email">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-large" type="password" placeholder="Your Password" name="password">
+                            </div>
+                        </div>
+
+                        <button class="button is-block is-dark is-medium is-fullwidth">Register <i class="fa fa-sign-in"
+                                aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <p class="has-text-grey">
+                    <a href="/user/login/">Already have an account?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

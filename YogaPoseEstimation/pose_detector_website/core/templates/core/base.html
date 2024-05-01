@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>{% block title %}{% endblock %}Pose Detector App</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    
+        body {
+            font-family: 'Nunito', sans-serif;
+        };
+    
+        nav.navbar {
+            height: 6rem !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+        }
+    
+        ::-webkit-scrollbar {
+            height: 10px;
+            width: 10px
+        }
+    
+        ::-webkit-scrollbar-track {
+            background: #efefef;
+            border-radius: 6px
+        }
+    
+        ::-webkit-scrollbar-thumb {
+            background: #d5d5d5;
+            border-radius: 6px
+        }
+    
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c4c4c4
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <strong>Pose Detector App</strong>
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    {% if request.user.is_authenticated %}
+                    <div class=" navbar-item">
+                        <form method="get" action="{% url 'search' %}">
+                            <div class="control has-icons-left">
+                                <input class="input is-rounded" name="query" type="text" placeholder="Search">
+                                <span class="icon is-left">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        About
+                    </a>
+                    <a href="{% url 'upload_form' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        Upload a Pose
+                    </a>
+                    <a href="{% url 'upload_webcam' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        Real Time Pose Detection
+                    </a>
+                    <a href="{% url 'logout' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        Logout
+                    </a>
+                    {% else %}
+                    <a href="{% url 'about' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        About
+                    </a>
+                    <a href="{% url 'login' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        Login
+                    </a>
+                    <a href="{% url 'register' %}" class="navbar-item is-size-6 has-text-weight-semibold">
+                        Register
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+</body>
+
+</html>

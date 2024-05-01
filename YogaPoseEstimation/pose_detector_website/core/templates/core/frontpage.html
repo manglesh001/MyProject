@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard | {% endblock %}
+
+{% block content %}
+    <section class="hero ">
+        <div class="hero-body">
+            <div class="container">
+
+                <section class="section">
+                    <div class="columns">
+                        {% if request.user.is_authenticated %}
+                        <div class="column is-8 is-offset-2">
+                            {% for post in posts %}
+                                <div class="content is-medium">
+                                    <a href="{% url 'details' post.slug %}">
+                                        <h1 class="title has-text-centered">{{ post.title }}</h1>
+                                        <h4 class="subtitle has-text-centered">{{ post.submitted_at }}</h4>
+                                        {% if post.image %}
+                                            <div class="columns">
+                                                <div class="column is-half">
+                                                    <figure class="image">
+                                                        <img src="{{ post.image.url }}" alt="">
+                                                    </figure>
+                                                </div>
+                                                <div class="column is-half">
+                                                    <figure class="image">
+                                                        <img src="{{ post.detect_image.url }}" alt="">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <p class="has-text-centered">{{ post.information }}</p>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        
+                        {% else %}
+                        
+                        <div>
+                            <div style="text-align: center; margin-top: 0;">
+                                <h1 style="font-size: 46px; font-weight: bold; margin-bottom: 5px; margin-top: 0;">Yoga Pose Estimation</h1>
+                            </div>
+                            {% load static %}
+                            <img src="{% static 'yoga-landing.jpg' %}" alt="">
+                        </div>
+                        
+                        {% endif %}
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
