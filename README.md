@@ -7,4 +7,4 @@
 
 <b>
 
-Author -- MANGLESH PATIDAR IIITH
+Author -- MANGLESH PATIDAR
